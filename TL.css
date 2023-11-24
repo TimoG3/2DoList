@@ -1,0 +1,155 @@
+:root {
+	--bg-color-l: #F7EAE4;
+	--text-color-l: rgb(11, 11, 11);
+	--display-color-l: #A49E8D;
+	--border-l: #191615;
+	--bg-color-d: #0E0F0F;
+	--text-color-d: rgb(192, 185, 185);
+	--display-color-d: rgb(37, 37, 37);
+	--border-d: #9B9A9A;
+	--edit-l: rgb(30, 105, 23);
+	--edit-d: rgb(44, 184, 31);
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family:'Segoe UI', sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	color: #FFF;
+	background-color: var(--bg-color-l);
+}
+
+header {
+	padding: 2rem 1rem;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+header, h1 {
+	font-size: 2em;
+	font-weight: 800;
+	color: var(--text-color-l);
+	margin-bottom: 25px;
+	user-select: none;
+}
+
+#new-task-form {
+	display: flex;;
+}
+
+#new-task-input {
+	flex: 1 1 0%;
+	background-color: var(--display-color-l);
+	padding: 1rem;
+	border-radius: 25px;
+	margin-right: 1rem;
+	color: var(--text-color-l);
+	font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+	color: var(--text-color-l);
+}
+
+#new-task-submit {
+	color: var(--text-color-l);
+	font-size: 1.25rem;
+	font-weight: bolder;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: 0.4s;
+}
+
+#new-task-submit:hover {
+	background-color: var(--bg-color-d);
+	color: var(--text-color-d);
+	border: solid var(--border-d);
+}
+
+input, button {
+	border: solid var(--border-l);
+	outline: none;
+	border-radius: 25px;
+	background: var(--display-color-l);
+}
+
+.task-list {
+	padding: 1rem;
+}
+
+.task-list h2 {
+	font-size: 1.5rem;
+	color: var(--text-color-l);
+	margin-bottom: 1rem;
+}
+
+main {
+	flex: 1 1 0%;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.task-list {
+	padding: 1rem;
+}
+
+.task-list h2 {
+	font-size: 1.5rem;
+	color: var(--text-color-l);
+	margin-bottom: 1rem;
+}
+
+#tasks .task {
+	display: flex;
+	justify-content: space-between;
+	padding: 0rem;
+	border-radius: 25px;
+	margin-bottom: 1rem;
+}
+
+.task .content {
+	flex: 1 1 0%;
+	margin-right: 10px;
+}
+
+.task .content .text {
+	color: var(--text-color-l);
+	font-size: 1.125rem;
+	font-weight: 600;
+	padding: 1rem;
+	width: 100%;
+	display: block;
+	transition: 0.4s;
+}
+
+.task .content .text:not(:read-only) {
+	color: var(--edit-l);
+}
+
+.task .actions {
+	display: flex;
+	margin: 0 -0.5rem;
+}
+
+.task .actions button {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	transition: 0.4s;
+}
+
+.task .actions button:hover {
+	background-color: var(--bg-color-d);
+	color: var(--text-color-d);
+	border: solid var(--border-d);
+}
