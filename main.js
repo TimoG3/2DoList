@@ -3,9 +3,10 @@ window.addEventListener('load', () => {
 	const input = document.querySelector("#new-task-input");
 	const list_el = document.querySelector("#tasks");
   
+
 	const storedTasks = JSON.parse(localStorage.getItem('tasks'));
 	if (storedTasks) {
-		
+
 	  storedTasks.forEach(task => {
 		renderTask(task);
 	  });
@@ -15,11 +16,14 @@ window.addEventListener('load', () => {
 	  e.preventDefault();
 	  const task = input.value;
   
+
 	  const tasks = storedTasks || [];
 	  tasks.push(task);
   
+
 	  localStorage.setItem('tasks', JSON.stringify(tasks));
   
+
 	  renderTask(task);
   
 	  input.value = '';
@@ -62,11 +66,14 @@ window.addEventListener('load', () => {
 		  task_input_el.removeAttribute("readonly");
 		  task_input_el.focus();
 		} else {
+
 		  const tasks = JSON.parse(localStorage.getItem('tasks'));
 		  const index = tasks.indexOf(task);
   
+
 		  tasks[index] = task_input_el.value;
   
+
 		  localStorage.setItem('tasks', JSON.stringify(tasks));
   
 		  task_edit_el.innerText = "Edit";
@@ -79,8 +86,10 @@ window.addEventListener('load', () => {
 		const tasks = JSON.parse(localStorage.getItem('tasks'));
 		const updatedTasks = tasks.filter(t => t !== task);
   
+
 		localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   
+
 		list_el.removeChild(task_el);
 	  });
 	}
