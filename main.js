@@ -3,10 +3,9 @@ window.addEventListener('load', () => {
 	const input = document.querySelector("#new-task-input");
 	const list_el = document.querySelector("#tasks");
   
-	// Check if there is any stored data in localStorage
 	const storedTasks = JSON.parse(localStorage.getItem('tasks'));
 	if (storedTasks) {
-	  // If there is stored data, render the tasks on page load
+		
 	  storedTasks.forEach(task => {
 		renderTask(task);
 	  });
@@ -16,14 +15,11 @@ window.addEventListener('load', () => {
 	  e.preventDefault();
 	  const task = input.value;
   
-	  // Store the new task in an array
 	  const tasks = storedTasks || [];
 	  tasks.push(task);
   
-	  // Store the tasks array in localStorage
 	  localStorage.setItem('tasks', JSON.stringify(tasks));
   
-	  // Render the new task on the page
 	  renderTask(task);
   
 	  input.value = '';
@@ -66,14 +62,11 @@ window.addEventListener('load', () => {
 		  task_input_el.removeAttribute("readonly");
 		  task_input_el.focus();
 		} else {
-		  // Get the index of the task in the tasks array
 		  const tasks = JSON.parse(localStorage.getItem('tasks'));
 		  const index = tasks.indexOf(task);
   
-		  // Update the task in the tasks array
 		  tasks[index] = task_input_el.value;
   
-		  // Update the tasks array in localStorage
 		  localStorage.setItem('tasks', JSON.stringify(tasks));
   
 		  task_edit_el.innerText = "Edit";
@@ -82,14 +75,12 @@ window.addEventListener('load', () => {
 	  });
   
 	  task_delete_el.addEventListener('click', (e) => {
-		// Remove the task from the tasks array
+
 		const tasks = JSON.parse(localStorage.getItem('tasks'));
 		const updatedTasks = tasks.filter(t => t !== task);
   
-		// Update the tasks array in localStorage
 		localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   
-		// Remove the task element from the page
 		list_el.removeChild(task_el);
 	  });
 	}
